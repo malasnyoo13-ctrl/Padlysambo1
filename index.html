@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tata Surya 3D</title>
+<meta name="description" content="Jelajahi tata surya dalam simulasi 3D interaktif — orbit planet, sabuk asteroid, komet, dan detail tiap planet.">
+<link rel="stylesheet" href="style.css">
+<style>
+  .hero{
+    padding: 96px 28px 64px;
+    text-align:center;
+  }
+  .hero .eyebrow{
+    font-size: 10.5px; letter-spacing:0.16em; text-transform:uppercase;
+    color: var(--accent-2); margin-bottom: 18px;
+  }
+  .hero h1{
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 800;
+    font-size: clamp(38px, 8vw, 72px);
+    line-height: 1.04;
+    margin: 0 0 20px;
+    letter-spacing: -0.01em;
+  }
+  .hero p{
+    max-width: 520px; margin: 0 auto 36px;
+    color: var(--ink-dim);
+    font-size: 14.5px; line-height:1.7;
+  }
+  .hero-actions{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+
+  .orbitmark{
+    width: 120px; height:120px; margin: 0 auto 34px;
+    position:relative;
+  }
+  .orbitmark .core{
+    position:absolute; top:50%; left:50%; width:22px; height:22px;
+    margin:-11px; border-radius:50%;
+    background: radial-gradient(circle at 35% 30%, #fff2c2, #ffb454 60%, #c9761f);
+    box-shadow: 0 0 30px rgba(255,180,84,0.55);
+  }
+  .orbitmark .ring{
+    position:absolute; inset:0; border:1px solid var(--panel-border); border-radius:50%;
+  }
+  .orbitmark .ring.r2{ inset:18px; }
+  .orbitmark .dot{
+    position:absolute; width:7px; height:7px; border-radius:50%; background:var(--accent-2);
+    top:-3.5px; left:50%; margin-left:-3.5px;
+    box-shadow: 0 0 8px var(--accent-2);
+  }
+
+  .features{
+    padding: 20px 28px 90px;
+    display:grid; grid-template-columns: repeat(3, 1fr); gap:16px;
+  }
+  .feature{
+    border: 1px solid var(--panel-border);
+    background: var(--panel);
+    border-radius: 14px;
+    padding: 22px 20px;
+  }
+  .feature .num{ font-size:10px; color:var(--ink-dim); letter-spacing:0.1em; margin-bottom:10px; }
+  .feature h3{
+    font-family:'Space Grotesk', sans-serif; font-size:15px; font-weight:600;
+    margin: 0 0 8px;
+  }
+  .feature p{ font-size:11.5px; line-height:1.6; color:var(--ink-dim); margin:0; }
+
+  @media (max-width: 720px){
+    .features{ grid-template-columns: 1fr; }
+    .hero{ padding-top: 64px; }
+  }
+</style>
+</head>
+<body>
+
+<canvas id="stars"></canvas>
+
+<nav class="nav">
+  <a href="index.html" class="nav-brand">☉ <span>Tata</span>&nbsp;Surya</a>
+  <div class="nav-links">
+    <a href="index.html" class="current">Beranda</a>
+    <a href="jelajahi.html">Jelajahi</a>
+    <a href="tentang.html">Tentang</a>
+  </div>
+</nav>
+
+<main>
+  <section class="hero container">
+    <div class="orbitmark">
+      <div class="ring"></div>
+      <div class="ring r2"></div>
+      <div class="core"></div>
+      <div class="dot"></div>
+    </div>
+    <div class="eyebrow">Simulasi 3D interaktif</div>
+    <h1>Delapan planet,<br>satu Matahari,<br>satu tab browser.</h1>
+    <p>Putar, perbesar, dan ketuk tiap planet untuk melihat data orbitnya — lengkap dengan sabuk asteroid, komet, dan mode perbandingan ukuran. Semua berjalan langsung di browser, tanpa instalasi.</p>
+    <div class="hero-actions">
+      <a href="jelajahi.html" class="btn-link primary">Jelajahi Sekarang →</a>
+      <a href="tentang.html" class="btn-link">Tentang Proyek</a>
+    </div>
+  </section>
+
+  <section class="features container">
+    <div class="feature">
+      <div class="num">01</div>
+      <h3>Orbit nyata, skala pas</h3>
+      <p>Sembilan benda langit — dari Merkurius sampai Pluto — mengorbit dengan kecepatan relatif yang bisa diatur.</p>
+    </div>
+    <div class="feature">
+      <div class="num">02</div>
+      <h3>Detail tiap planet</h3>
+      <p>Ketuk planet mana pun untuk melihat diameter, periode orbit, rotasi, dan suhu rata-ratanya.</p>
+    </div>
+    <div class="feature">
+      <div class="num">03</div>
+      <h3>Tur otomatis & simpan gambar</h3>
+      <p>Biarkan kamera berkeliling sendiri, atau simpan tampilan favoritmu sebagai gambar.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  Dibuat dengan Three.js &middot; berjalan sepenuhnya di browser
+</footer>
+
+<script src="stars.js"></script>
+</body>
+</html>
